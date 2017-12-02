@@ -1,24 +1,34 @@
 # HimeJson
 JSON library for Kuin.
 
+## ◆ License
+>[くいなちゃんライセンス](http://kuina.ch/others/license)
 
-## パースの方法
-### JSONファイルからパース
-@makeJsonF(path: []char): @Json を使います。
-```
+* >改変OK！  
+* >再配布OK！  
+* >二次創作OK！  
+* >著作権表示義務なし！  
+* >「くいなちゃんライセンス」のものを使った作品は「くいなちゃんライセンス」にする必要なし！
+
+
+## ◆ JSONからKuinへのパースの方法
+#### パースする方法は２つあります。  
+1. JSON形式のファイルから直接パース
+2. JSONのテキストデータ（[]char）からパース
+
+2の方法はURL等のストリームから取得した文字列をパースする際に使います。  
+もちろん、URL等のストリームからパースするメソッドを作っても良いでしょう。
+```kuin
 var json: \json@Json :: \json@makeJsonF("res/test_JsonParser.json")
-```
 
-
-### テキストデータ（[]char）からパース
-@makeJsonT(text: []char): @Json を使います。
-```
 var text: []char :: "{\"a\":\"b\"}"
 var json: \json@Json :: \json@makeJsonT(text)
 ```
 
+#### 
 
-## JSONデータへのアクセス
+
+## ◆ JSONデータへのアクセス
 @Json.at(path: []char): @Json を使って欲しい要素までのパスを文字列で指定します。
 
 test_JsonParser.json

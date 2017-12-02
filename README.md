@@ -22,7 +22,7 @@ JSON library for Kuin.
 var json: \json@Json :: \json@makeJsonF("res/sample.json")
 
 var text: []char :: "{\"a\":\"b\"}"
-var json: \json@Json :: \json@makeJsonT(text)
+var json2: \json@Json :: \json@makeJsonT(text)
 ```
 
 
@@ -125,7 +125,7 @@ var cnt: int :: json.len() { -> 2 }
 #### 2. @JsonArray.add(item: @Json)
 配列値の最後に新しい要素`item`を追加
 ```kuin
-var new_item: \json@JsonBool :: \json@JsonBool
+var new_item: \json@JsonBool :: #\json@JsonBool
 do new_item.setValue(true)
 
 do json.add(new_item)
@@ -135,7 +135,7 @@ do json.add(new_item)
 #### 3. @JsonArray.addAt(index: int, item: @Json)
 `index`で指定した位置に`item`を追加
 ```kuin
-var new_item: \json@JsonBool :: \json@JsonBool
+var new_item: \json@JsonBool :: #\json@JsonBool
 do new_item.setValue(true)
 
 do json.addAt(1, new_item)
@@ -179,7 +179,7 @@ func main()
   var item: @Item :: #@Item
   
   do item.maxValue :: 0
-  do json.forEach(max_search, item)
+  do json.toJAry().forEach(max_search, item)
   do cui@print("max value -> \{item.maxValue}") {max value -> 5}
   
   func max_search(json: \json@Json, data: @Item): bool
@@ -213,7 +213,7 @@ var cnt: int :: json.len() { -> 2 }
 #### 2. @JsonObject.add(key: []char, item: @Json)
 `key`と`item`のペアで要素を追加
 ```kuin
-var new_item: \json@JsonBool :: \json@JsonBool
+var new_item: \json@JsonBool :: #\json@JsonBool
 do new_item.setValue(true)
 
 do json.add("new_key", new_item)
